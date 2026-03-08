@@ -7,7 +7,7 @@ exports.register = async (req, res) => {
 
 try {
 
-const { name, email, password } = req.body
+const { name, email, password ,role} = req.body
 
 const userExist = await User.findOne({ email })
 
@@ -21,7 +21,7 @@ const user = await User.create({
 name,
 email,
 password: hashedPassword,
-role: "user"   // force role to user
+role 
 })
 
 res.status(201).json({

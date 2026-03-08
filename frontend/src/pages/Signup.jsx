@@ -8,7 +8,8 @@ export default function Signup(){
 const [form,setForm] = useState({
 name:"",
 email:"",
-password:""
+password:"",
+role:"user" // force role to user --- IGNORE ---
 })
 
 const navigate = useNavigate()
