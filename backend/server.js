@@ -15,13 +15,14 @@ const app = express()
 app.use(cookieParser())
 
 
-app.use(cors({
-  origin:process.env.CLIENT_URL || "https://product-sphere-ten.vercel.app/",
+// app.use(cors({
+//   origin:process.env.CLIENT_URL || "https://product-sphere-ten.vercel.app/",
 
-  credentials: true,
- methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-}))
+//   credentials: true,
+//  methods: ["GET", "POST", "PUT", "DELETE"],
+//   allowedHeaders: ["Content-Type", "Authorization"]
+// }))
+app.use(cors())
 
 app.use(express.json())
 app.get("/", (req, res) => {
