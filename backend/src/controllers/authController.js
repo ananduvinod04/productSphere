@@ -64,20 +64,20 @@ process.env.JWT_SECRET,
 
 // store token in cookie
 res.cookie("token", token, {
-httpOnly: true,
-sameSite: "lax",
-secure: false,
-maxAge: 24 * 60 * 60 * 1000
+  httpOnly: true,
+  secure: process.env.NODE_ENV === "production",
+  sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+  maxAge: 24 * 60 * 60 * 1000,
 })
 
 res.json({
-message: "Login successful",
-user: {
-id: user._id,
-name: user.name,
-email: user.email,
-role: user.role
-}
+  message: "Login successful",
+  user: {
+    id: user._id,
+    name: user.name,
+    email: user.email,
+    role: user.role,
+  },
 })
 
 } catch (error) {
